@@ -28,7 +28,7 @@ public class MySQLUserDAO implements UserDAO {
 
 			String sqlInsert = "INSERT INTO users ("
 			        + "name, gender, email, password, cpf, role, created_at, farmId"
-			        + ") VALUES (?, ?, ?, PASSWORD(?), ?, ?, NOW(), ?);";
+			        + ") VALUES (?, ?, ?, ?, ?, ?, NOW(), ?);";
 			
 			preparedStatement = connection.prepareStatement(sqlInsert);
 			preparedStatement.setString(1, user.getName());
@@ -74,7 +74,7 @@ public class MySQLUserDAO implements UserDAO {
 			preparedStatement.setString(1, user.getName());
 			preparedStatement.setString(2, user.getGender().toString());
 			preparedStatement.setString(3, user.getEmail());
-			preparedStatement.setString(4, user.getPassword());
+			preparedStatement.setString(4, Security.encrypt(user.getPassword()));
 			preparedStatement.setString(5, user.getCpf());
 			preparedStatement.setString(6, user.getRole());
 			preparedStatement.setInt(7, user.getFarm().getId());
@@ -150,7 +150,7 @@ public class MySQLUserDAO implements UserDAO {
 	            user.setName(name);
 	            user.setGender(gender);
 	            user.setEmail(email);
-	            user.setPassword(password);
+	            user.setPassword(Security.decrypt(password));
 	            user.setCpf(cpf);
 	            user.setRole(role);
 
@@ -201,7 +201,7 @@ public class MySQLUserDAO implements UserDAO {
 	            user.setName(name);
 	            user.setGender(gender);
 	            user.setEmail(email);
-	            user.setPassword(password);
+	            user.setPassword(Security.decrypt(password));
 	            user.setCpf(cpf);
 	            user.setRole(role);
 	            

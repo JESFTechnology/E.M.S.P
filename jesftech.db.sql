@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `alerts` (
   CONSTRAINT `FK_alerts_sensors` FOREIGN KEY (`sensorId`) REFERENCES `sensors` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela emsp.alerts: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela emsp.alerts: ~1 rows (aproximadamente)
 DELETE FROM `alerts`;
 INSERT INTO `alerts` (`id`, `sensorId`, `message`, `level`, `created_at`, `resolved`) VALUES
 	(2, 5, 'Sensor relatou -400, possívelmente não está conectado a rede ou está danificado.', 'Baixo', '2025-10-31 13:15:03', 1);
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `sensors` (
   CONSTRAINT `FK_sensors_sensor_type` FOREIGN KEY (`typeSensor`) REFERENCES `sensor_type` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela emsp.sensors: ~5 rows (aproximadamente)
+-- Copiando dados para a tabela emsp.sensors: ~6 rows (aproximadamente)
 DELETE FROM `sensors`;
 INSERT INTO `sensors` (`id`, `name`, `typeSensor`, `last_value`, `last_update`, `device_model`, `battery_level`, `status`, `installed_at`, `farmId`) VALUES
 	(1, 'Estação Meteorologica 1', 1, 18, '2025-10-23 07:49:10', '726NS', 100, 'Ativo', '2025-10-23 10:49:10', 1),
@@ -118,13 +118,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `email` (`email`),
   KEY `farmId` (`farmId`),
   CONSTRAINT `FK_users_farm` FOREIGN KEY (`farmId`) REFERENCES `farm` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela emsp.users: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela emsp.users: ~2 rows (aproximadamente)
 DELETE FROM `users`;
 INSERT INTO `users` (`id`, `name`, `gender`, `email`, `password`, `cpf`, `role`, `created_at`, `farmId`) VALUES
-	(1, 'Johann Estevão Sacconi Ferreira', 'M', 'johannsacconi@gmail.com', '*15B7E9FCAE295CF015F02D3E7C62A74663DFEE08', '13642344674', 'Gerente', '2025-10-23 11:01:51', 1),
-	(3, 'Lucas da Silva Rosa', 'M', 'lucasrosa@gmail.com', '*15B7E9FCAE295CF015F02D3E7C62A74663DFEE08', '34393977725', 'Desenvolvedor', '2025-10-31 12:20:02', 2);
+	(1, 'Johann Estevão Sacconi Ferreira', 'M', 'johannsacconi@gmail.com', 'gjs1234', '13642344674', 'operator', '2025-11-03 12:42:09', 1),
+	(2, 'Lucas Silva Rosa', 'M', 'lucas@gmail.com', 'gjs1234', '12345678901', 'Operador', '2025-11-03 12:43:24', 2);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
