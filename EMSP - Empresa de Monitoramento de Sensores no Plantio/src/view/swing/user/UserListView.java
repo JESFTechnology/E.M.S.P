@@ -73,20 +73,27 @@ public class UserListView extends JDialog implements IUserListView {
             int row = table.getSelectedRow();
             if (row >= 0) {
                 User user = tableModel.getUserAt(row);
-                UserFormView form = new UserFormView(this, user, controller);
-                form.setVisible(true);
+                if(userId == user.getId()) {
+                		UserFormView form = new UserFormView(this, user, controller);
+                		form.setVisible(true);
+                }else {
+                		showMessage("Não é permitido a alteração de dados de outro funcionário");
+                }
             }
         });
-
+        
         deleteItem.addActionListener(e -> {
             int row = table.getSelectedRow();
             if (row >= 0) {
                 User user = tableModel.getUserAt(row);
                 int confirm = JOptionPane.showConfirmDialog(this, "Excluir usuário?", "Confirmação", JOptionPane.YES_NO_OPTION);
                 if (confirm == JOptionPane.YES_OPTION) {
-                    if(controller.excluirUsuario(user) && userId == user.getId())
+                    if(userId == user.getId()) {
+                    		controller.excluirUsuario(user);
                     		System.exit(0);
-                    	
+                    }else{
+                    		showMessage("Não é permitido remover outro funcionário");
+                    }
                 }
             }
         });
