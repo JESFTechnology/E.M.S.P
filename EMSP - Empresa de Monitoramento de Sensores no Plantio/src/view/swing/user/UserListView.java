@@ -27,7 +27,7 @@ public class UserListView extends JDialog implements IUserListView {
     private final UserTableModel tableModel = new UserTableModel();
     private final JTable table = new JTable(tableModel);
 
-    public UserListView(JFrame parent) {
+    public UserListView(JFrame parent, int userId) {
         super(parent, "Usuários", true);
         this.controller = new UserController();
         this.controller.setUserListView(this);
@@ -84,7 +84,9 @@ public class UserListView extends JDialog implements IUserListView {
                 User user = tableModel.getUserAt(row);
                 int confirm = JOptionPane.showConfirmDialog(this, "Excluir usuário?", "Confirmação", JOptionPane.YES_NO_OPTION);
                 if (confirm == JOptionPane.YES_OPTION) {
-                    controller.excluirUsuario(user);
+                    if(controller.excluirUsuario(user) && userId == user.getId())
+                    		System.exit(0);
+                    	
                 }
             }
         });

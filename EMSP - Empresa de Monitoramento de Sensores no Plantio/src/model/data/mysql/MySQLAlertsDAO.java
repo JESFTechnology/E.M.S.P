@@ -17,7 +17,7 @@ public class MySQLAlertsDAO implements AlertsDAO{
 
 	@Override
 	public void save(Alerts alerts) throws ModelException {
-		// TODO Auto-generated method stub
+		// TODO Salvar
 			Connection connection = null;
 			PreparedStatement preparedStatement = null;
 			
@@ -49,7 +49,7 @@ public class MySQLAlertsDAO implements AlertsDAO{
 
 	@Override
 	public void update(Alerts alerts) throws ModelException {
-		// TODO Auto-generated method stub
+		// TODO Alterar
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
@@ -85,7 +85,7 @@ public class MySQLAlertsDAO implements AlertsDAO{
 
 	@Override
 	public void delete(Alerts alerts) throws ModelException {
-		// TODO Auto-generated method stub
+		// TODO Excluir
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -112,6 +112,7 @@ public class MySQLAlertsDAO implements AlertsDAO{
 
 	@Override
 	public List<Alerts> findAll() throws ModelException {
+		// TODO Encontrar todos
 		Connection connection = null;
 	    PreparedStatement preparedStatement = null;
 	    ResultSet rs = null;
@@ -152,6 +153,7 @@ public class MySQLAlertsDAO implements AlertsDAO{
 
 	@Override
 	public Alerts findById(int id) throws ModelException {
+		// TODO Selecionar unico
 		Connection connection = null;
 	    PreparedStatement preparedStatement = null;
 	    ResultSet rs = null;
@@ -189,6 +191,7 @@ public class MySQLAlertsDAO implements AlertsDAO{
 	}
 	
 	public String alertOfDay(int idFarm) throws ModelException {
+		// TODO Função extra: Alerta do dia
 		Connection connection = null;
 	    PreparedStatement preparedStatement = null;
 	    ResultSet rs = null;

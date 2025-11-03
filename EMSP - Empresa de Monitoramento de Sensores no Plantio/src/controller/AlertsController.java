@@ -51,7 +51,7 @@ public class AlertsController {
         }
     }
     
- // Excluir
+    // Excluir
     public void excluirAlert(Alerts alerts) {
         try {
         		alertsDAO.delete(alerts);

@@ -43,7 +43,7 @@ public class MainView extends JFrame {
         // Menu Usuários e Funcionários
         JMenu userAndFarmMenu = new JMenu("Usuários e Fazendas");
         JMenuItem userListItem = new JMenuItem("Listar Usuários");
-        userListItem.addActionListener(e -> new UserListView(this).setVisible(true));
+        userListItem.addActionListener(e -> new UserListView(this, user.getId()).setVisible(true));
         userAndFarmMenu.add(userListItem);
         
         JMenuItem farmListItem = new JMenuItem("Listar Fazendas");

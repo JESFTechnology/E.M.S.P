@@ -52,13 +52,15 @@ public class UserController {
     }
 
     // Excluir
-    public void excluirUsuario(User user) {
+    public boolean excluirUsuario(User user) {
         try {
             userDAO.delete(user);
             userListView.showMessage("Usuário excluído!");
             loadUsers();
+            return true;
         } catch (ModelException e) {
             userListView.showMessage("Erro ao excluir: " + e.getMessage());
+            return false;
         }
     }
     

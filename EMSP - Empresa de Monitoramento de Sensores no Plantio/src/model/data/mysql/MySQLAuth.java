@@ -14,6 +14,7 @@ import model.data.mysql.utils.MySQLConnectionFactory;
 public class MySQLAuth {
 
 	public LoginResult loginWithEmailAndPassword(String email, String password) throws ModelException {	
+		// TODO Selecionar usuário
 		Connection connection = null;
 		Statement statement = null;
 		ResultSet rs = null;
@@ -45,7 +46,8 @@ public class MySQLAuth {
 		return loginResult;
 	}
 	
-	public LoginResult verifyTheExistenceOfTheEmail(String email) throws ModelException {	
+	public LoginResult verifyTheExistenceOfTheEmail(String email) throws ModelException {
+		// TODO Verificar a existencia do email
 		Connection connection = null;
 		Statement statement = null;
 		ResultSet rs = null;

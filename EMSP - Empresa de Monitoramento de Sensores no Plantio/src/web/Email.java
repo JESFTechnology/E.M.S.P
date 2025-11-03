@@ -5,8 +5,8 @@ import javax.mail.*;
 import javax.mail.internet.*;
 
 public class Email {
-    private String user = "" // Necessita do email do gmail;
-    private String pass = "" // Necessita da senha de app do gmail;
+    private String user = "";
+    private String pass = "";
     private String host = "smtp.gmail.com";
     private String port = "587";
 
